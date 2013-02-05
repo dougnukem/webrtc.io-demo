@@ -1,7 +1,7 @@
 {
   "name": "dougnukemWebRTC",
   "description": "Example of multi user webrtc",
-  "version": "0.0.2-8",
+  "version": "0.0.2-13",
   "engines": {
     "node": "0.8.x"
   },
@@ -16,6 +16,8 @@
   "main": "example/server.js",
   "subdomain": "dougnukemWebRTC",
   "scripts": {
+    "predeploy": "cd ./example/public && rm webrtc.io.js && cp ../../node_modules/webrtc.io-client/lib/webrtc.io.js webrtc.io.js",
+    "postdeploy": "cd ./example/public && rm webrtc.io.js && ln -s ../../node_modules/webrtc.io-client/lib/webrtc.io.js webrtc.io.js",
     "start": "node example/server.js"
   },
   "author": "Ben Brittain",
