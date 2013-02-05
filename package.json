@@ -1,19 +1,22 @@
 {
-  "name": "MultiWebRTC",
+  "name": "dougnukemWebRTC",
   "description": "Example of multi user webrtc",
-  "version": "0.0.2-1",
+  "version": "0.0.2-4",
   "engines": {
-    "node": ">= 0.6.0"
+    "node": "0.8.x"
   },
   "dependencies": {
     "webrtc.io": "latest",
     "webrtc.io-client": "latest",
     "express": "2.5.1",
-    "ws": "latest"
+    "ws": "latest",
+    "winston": "latest",
+    "express-winston": "latest"
   },
-  "subdomain": "MultiWebRTC",
+  "main": "example/server.js",
+  "subdomain": "dougnukemWebRTC",
   "scripts": {
-    "start": "example/server.js"
+    "start": "node example/server.js"
   },
   "author": "Ben Brittain",
   "contributors": [
