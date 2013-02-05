@@ -5,6 +5,8 @@ var webRTC = require('webrtc.io').listen(app);
 var expressWinston = require('express-winston');
 var winston = require('winston'); // for transports.Console
 
+app.use(express.static(__dirname+'/public'));
+
 app.use(expressWinston.logger({
      transports: [
        new winston.transports.Console({
@@ -13,20 +15,6 @@ app.use(expressWinston.logger({
        })
      ]
    }));
-
-app.get('/', function(req, res) {
-  res.sendfile(__dirname + '/index.html');
-});
-
-app.get('/style.css', function(req, res) {
-	winston.info("style.css REQUESTED");
-  res.sendfile(__dirname + '/style.css');
-});
-
-app.get('/webrtc.io.js', function(req, res) {
-	winston.info("webrtc.io.js REQUESTED");
-  res.sendfile(__dirname + '/webrtc.io.js');
-});
 
 
 webRTC.rtc.on('connect', function(rtc) {
