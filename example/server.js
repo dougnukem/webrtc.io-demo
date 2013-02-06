@@ -19,19 +19,22 @@ app.use(expressWinston.logger({
 
 webRTC.rtc.on('connect', function(rtc) {
   //Client connected
+  winston.info("[webRTC] [Client connect]");
 });
 
 webRTC.rtc.on('send answer', function(rtc) {
   //answer sent
+  winston.info("[webRTC] [send answer]");
 });
 
 webRTC.rtc.on('disconnect', function(rtc) {
   //Client disconnect 
+  winston.info("[webRTC] [disconnect]");
 });
 
 webRTC.rtc.on('chat_msg', function(data, socket) {
   var roomList = webRTC.rtc.rooms[data.room] || [];
-
+  winston.info("[webRTC] [chatmsg] room = " + data.room, data.messages);
   for (var i = 0; i < roomList.length; i++) {
     var socketId = roomList[i];
 
